@@ -58,6 +58,22 @@ kmeans = KMeans(n_clusters=5, random_state=42)
 clusters = kmeans.fit_predict(embeddings)
 
 responses_data['Cluster'] = clusters
+
+
+
+# Suponiendo que tu DataFrame se llama df y la columna original es "categorias"
+mapping = {
+    0: "Actitudes reflexivas",
+    1: "Afirmaciones rápidas",
+    2: "mix",
+    3: "Preguntas cortas",
+    4: "Sin dudas claras"
+}
+
+# Crear la nueva columna "labels" usando el mapeo
+responses_data['Temas'] = responses_data['Cluster'].map(mapping)
+
+
 responses_data.to_excel("clustering5.xlsx", index=False)
 
 print(responses_data)

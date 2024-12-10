@@ -39,3 +39,5 @@ def limpiar_texto(texto):
     texto = " ".join([token.lemma_ for token in nlp(" ".join(palabras))])
     return texto
 
+
+
